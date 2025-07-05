@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 25th Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #fdb4b4;
+      --secondary: #90cecc;
+      --accent: #fcd5ce;
+      --light: #e0e9fc;
+      --dark: #444;
+      --shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fdf0f0 0%, #ffc0c0 100%);
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px 20px;
+      min-height: 100vh;
+    }
+
+    .slides-container {
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      animation: fade 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .birthday-card {
+      background: var(--light);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border: 2px solid #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-pattern {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(248, 188, 188, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(160, 231, 229, 0.1) 0%, transparent 25%);
+      z-index: 0;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .birthday-text {
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .age-badge {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 15px 0;
+      box-shadow: 0 4px 8px rgba(248, 188, 188, 0.3);
+    }
+
+    .polaroid {
+      background: linear-gradient(to bottom right, #fdf0f0, #eaf8d9);
+      padding: 15px;
+      margin: 20px auto;
+      border-radius: 5px;
+      box-shadow: var(--shadow);
+      width: fit-content;
+    }
+
+    .polaroid img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .polaroid p {
+      margin-top: 10px;
+      font-weight: bold;
+      font-style: italic;
+      color: var(--dark);
+    }
+
+    .message {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 15px 0;
+      border-left: 4px solid var(--secondary);
+      color: var(--dark);
+    }
+
+    .cute-element {
+      font-size: 2rem;
+      margin: 10px 0;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .spotify-btn {
+      background: linear-gradient(45deg, var(--secondary), #a9dcb9);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .nav-buttons {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background: white;
+      color: var(--primary);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 1rem;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      h1, h2 { font-size: 2rem; }
+      .birthday-text, .age-badge { font-size: 1.2rem; }
+      .polaroid img { width: 160px; height: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="slides-container">
+
+<!-- Slide 1 -->
+<div class="slide active" id="slide1">
+  <div class="birthday-card">
+    <div class="card-pattern"></div>
+    <div class="card-content">
+      <h1>Selamat Ulang Tahun!</h1>
+      <div class="polaroid">
+        <img src="lagu.jpeg" alt="Foto Lagu">
+        <p>Hidup lebih lama ya!🎨</p>
+      </div>
+      <button class="spotify-btn" id="playBtn">▶ Putar Lagu</button>
+      <div class="message">"Long live all the magic we made" – Taylor Swift</div>
+      <div class="cute-element">🎵</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" id="slide2">
+  <div class="birthday-card">
+    <div class="card-pattern"></div>
+    <div class="card-content">
+      <h2>Awsh ultah</h2>
+      <div class="age-badge">1/2 abad</div>
+      <div class="polaroid">
+        <img src="Ningning Aespa.jpeg" alt="Foto Ulang Tahun">
+        <p>Happyyee!🎂</p>
+      </div>
+      <div class="message">Selamat tahun ke 25, jangan lupa tidur soalnya makin jompo. Tapi  gpp le, yang nambah itu cuma angka umur km bkn uang... kecuali kalo KTP km dipake pinjol...</div>
+      <div class="message">kpn traktir ak? need 🍕🍔</div>
+      <div class="cute-element">✨</div>
+    </div>
+  </div>
+</div>
+
+    <!-- Slide 3 (Penutup + Close) -->
+    <div class="slide" id="slide3">
+      <div class="birthday-card">
+        <div class="card-pattern"></div>
+        <div class="card-content">
+          <h2>Dah yh</h2>
+          <div class="message">Jangan berubah jadi Spiderman ya... takut tiba tiba kamu manjat gedung SM</div>
+          <div class="message">Udah ya segini aja, ntar dikira niat banget. Pokoknya terimakasih udah temenan, walaupun kadang pengen ku-mute kekocakan km</div>
+          <div class="cute-element">💌</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigasi -->
+    <div class="nav-buttons">
+      <button class="nav-btn" id="prevBtn">❮ </button>
+      <button class="nav-btn" id="nextBtn">❯ </button>
+      <button class="nav-btn" id="closeBtn" style="display: none;">Close</button>
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="birthdaySong">
+    <source src="Taylor Swift - Long Live (Taylor's Version) (Lyric Video).mp3" type="audio/mpeg">
+    Browser tidak mendukung audio.
+  </audio>
+
+  <!-- Script -->
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const song = document.getElementById("birthdaySong");
+    const playBtn = document.getElementById("playBtn");
+    let current = 0;
+    let isPlaying = false;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+      });
+
+      // Show close button only on last slide
+      if (index === slides.length - 1) {
+        nextBtn.style.display = "none";
+        closeBtn.style.display = "inline-block";
+      } else {
+        nextBtn.style.display = "inline-block";
+        closeBtn.style.display = "none";
+      }
+    }
+
+    nextBtn.addEventListener("click", () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+
+    closeBtn.addEventListener("click", () => {
+      window.close(); // Will work only if window opened by script
+      alert("Terima kasih telah melihat ucapan ini!");
+    });
+
+    playBtn?.addEventListener("click", () => {
+      if (!isPlaying) {
+        song.play();
+        playBtn.textContent = "⏸ Jeda Lagu";
+      } else {
+        song.pause();
+        playBtn.textContent = "▶ Putar Lagu";
+      }
+      isPlaying = !isPlaying;
+    });
+
+    song.addEventListener("ended", () => {
+      playBtn.textContent = "▶ Putar Ulang";
+      isPlaying = false;
+    });
+
+    // Inisialisasi
+    showSlide(0);
+  </script>
+</body>
+</html>
